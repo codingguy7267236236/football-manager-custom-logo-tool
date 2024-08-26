@@ -3,7 +3,7 @@ import os
 from PIL import Image
 
 # folder locations
-imgFld = "path_to_your_logo_folder" # images for the teams must map to in game id to display correctly.
+imgFld = "E:/Python/football-manager-custom-logo-tool-main/football-manager-custom-logo-tool-main/logos" # images for the teams must map to in game id to display correctly.
 graphics = "E:/Documents/Sports Interactive/Football Manager 2023/graphics/logos/" # replace with path to your fm graphics folder
 
 # function to resize image graphics for football manager ui
@@ -45,8 +45,10 @@ def ResizeImages():
     # closing the config file elements of list and record
     configTxt += '''</list>
     </record>'''
-    #saving txt to textfile which values can then be copied and pasted into main config.xml file
-    with open("fm.txt","w") as txt:
+    ###saving txt to config.xml file which can then be copied to the fm graphics folder. 
+    # (done this way to ensure no rewriting of existing config files in graphics folder) allows user to backup existing or
+    # allow user to paste the records inside <list></list> into pre-existing config file
+    with open("config.xml","w") as txt:
         txt.write(configTxt)
         txt.close()
 
