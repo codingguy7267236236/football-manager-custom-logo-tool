@@ -3,8 +3,8 @@ import os
 from PIL import Image
 
 # folder locations
-imgFld = "E:/bc and scott reacts/planets" # images for the teams must map to in game id to display correctly.
-graphics = "E:/Documents/Sports Interactive/Football Manager 2023/graphics/logos/"
+imgFld = "path_to_your_logo_folder" # images for the teams must map to in game id to display correctly.
+graphics = "E:/Documents/Sports Interactive/Football Manager 2023/graphics/logos/" # replace with path to your fm graphics folder
 
 # function to resize image graphics for football manager ui
 def ResizeImages():
