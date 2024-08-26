@@ -8,6 +8,14 @@ graphics = "E:/Documents/Sports Interactive/Football Manager 2023/graphics/logos
 
 # function to resize image graphics for football manager ui
 def ResizeImages():
+    # contains structure for the config file
+    configTxt = '''<record>
+	<!-- resource manager options -->
+	<boolen id="preload" value="false"/>
+	<boolen id="map" value="false"/>
+	<!--Logo mapping section this is where images go-->
+	<list id="maps">'''
+    
     fmTxt = "" # used to hold the config records data
 
     # going through all images in the folder to resize and then add record
@@ -31,10 +39,15 @@ def ResizeImages():
             # adding the config data for setting the 
             fmTxt += f'<record from="smll{id}" to="graphics/pictures/club/{id}/icon"/>\n'
             fmTxt += f'<record from="big{id}" to="graphics/pictures/club/{id}/logo"/>\n'
-
+            
+    # add the fmTxt containing team logo mapping records to config contents
+    configTxt += fmTxt
+    # closing the config file elements of list and record
+    configTxt += '''</list>
+    </record>'''
     #saving txt to textfile which values can then be copied and pasted into main config.xml file
     with open("fm.txt","w") as txt:
-        txt.write(fmTxt)
+        txt.write(configTxt)
         txt.close()
 
 ResizeImages()
